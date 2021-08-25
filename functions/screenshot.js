@@ -40,6 +40,7 @@ fullPage:true
   // TODO handle 404/500 status codes better
 
   let options = {
+fullPage: true,
     type: format,
     encoding: "base64"
   };
