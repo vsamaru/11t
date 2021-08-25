@@ -32,6 +32,7 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true), {
   // TODO is there a way to bail at timeout and still show what’s rendered on the page?
   let response = await page.goto(url, {
     waitUntil: ["load", "networkidle2"],
+fullPage: true,
  //   timeout: 8500
   });
   // let statusCode = response.status();
@@ -39,7 +40,7 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true), {
 
   let options = {
     type: format,
-fullPage: true,
+
     encoding: "base64"
   };
 
