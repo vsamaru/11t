@@ -11,7 +11,7 @@ function isFullUrl(url) {
   }
 }
 
-async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
+async function screenshot(url, format, viewportSize, dpr = 1, withJs = true), {
   const browser = await chromium.puppeteer.launch({
     executablePath: await chromium.executablePath,
     args: chromium.args,
@@ -39,6 +39,7 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
 
   let options = {
     type: format,
+fullPage: true,
     encoding: "base64"
   };
 
