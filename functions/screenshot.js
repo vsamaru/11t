@@ -20,6 +20,7 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
       height: viewportSize[1],
       deviceScaleFactor: 2,
     },
+isMobile:true,
     headless: chromium.headless,
   });
 
