@@ -11,7 +11,7 @@ function isFullUrl(url) {
   }
 }
 
-async function screenshot(url, format, viewportSize, dpr = 1, withJs = true), {
+async function screenshot(url, format, viewportSize, dpr = 1, withJs = true) {
   const browser = await chromium.puppeteer.launch({
     executablePath: await chromium.executablePath,
     args: chromium.args,
@@ -31,22 +31,20 @@ async function screenshot(url, format, viewportSize, dpr = 1, withJs = true), {
 
   // TODO is there a way to bail at timeout and still show what’s rendered on the page?
   let response = await page.goto(url, {
-    waitUntil: ["load", "networkidle2"],
-fullPage: true,
- //   timeout: 8500
+    waitUntil: ["load", "networkidle0"],
+    timeout: 8500
   });
   // let statusCode = response.status();
   // TODO handle 404/500 status codes better
 
   let options = {
     type: format,
-
     encoding: "base64"
   };
 
-//   if(format === "jpeg") {
-//     options.quality = 80;
-//   }
+  if(format === "jpeg") {
+    options.quality = 80;
+  }
 
   let output = await page.screenshot(options);
 
