@@ -1,4 +1,4 @@
-# Screenshot API
+# Screenshot APIo
 
 A runtime service to use live website screenshots on your site.
 
